@@ -3,8 +3,8 @@
 TemperatureController::TemperatureController()
 	: currentTemp(20.0f),
 	  targetTemp(20.0f),
-	  enable(false),
-	  disabled(false) {}
+	  enabled(false),
+	  fault(false) {}
 
 void TemperatureController::enable() {
 	if (!fault) enabled = true;
@@ -41,9 +41,9 @@ void TemperatureController::update() {
 	}
 
 	if(currentTemp < targetTemp){
-		currentTemp += 0.5f;
+		currentTemp += 1.0f;
 	}
 	else if(currentTemp > targetTemp){
-		currentTemp -= 0.5f;
+		currentTemp -= 1.0f;
 	}
 }

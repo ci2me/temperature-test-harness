@@ -1,7 +1,7 @@
 #ifndef TEMPERATURE_CONTROLLER_H
 #define TEMPERATURE_CONTROLLER_H
 
-class TemperatureContoller{
+class TemperatureController{
 public:
 	TemperatureController();
 	void enable();
@@ -25,6 +25,6 @@ private:
 	// enforces that the value cannot change
 	static constexpr float MIN_TEMP = -40.0f;
 	static constexpr float MAX_TEMP = 85.0f;
-}
+};
 
 #endif

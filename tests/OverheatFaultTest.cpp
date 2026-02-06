@@ -1,23 +1,21 @@
 #include "TestCase.h"
 #include "TemperatureController.h"
 
-class ReachTargetTest : public TestCase {
-public :
+class OverheatFaultTest : public TestCase {
+public:
 	bool run() override {
 		TemperatureController controller;
 		controller.enable();
-		controller.setTarget(25.0f);
+		controller.setTarget(90.0f);
 
-
-		for(int i = 0; i < 10; i++){
+		for (int i = 0; i < 75; i++){
 			controller.update();
 		}
 
-		return controller.readTemperature() == 25.0f;
+		return controller.hasFault();
 	}
 
 	std::string name() const override{
-		return "Reach target temperature";
+		return "OverheatFaultTest";
 	}
-
 };
